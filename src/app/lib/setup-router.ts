@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/pages/HomeView.vue";
 import type { App } from "vue";
+import AuthView from "@/pages/AuthView.vue";
 
 export function setupRouter({ app }: { app: App }): void {
   const router = createRouter({
@@ -10,6 +11,11 @@ export function setupRouter({ app }: { app: App }): void {
         path: "/",
         name: "home",
         component: HomeView,
+      },
+      {
+        path: "/auth",
+        name: "auth",
+        component: AuthView,
       },
     ],
   });

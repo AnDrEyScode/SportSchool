@@ -7,21 +7,18 @@
       <i class="pi pi-user text-5xl text-blue mb-8"></i>
       <div class="flex justify-between w-full">
         <label>Логин: </label>
-        <InputText v-model="inputLogin" class="border-2 rounded border-blue" />
+        <InputText v-model="inputLogin" />
       </div>
       <div class="flex justify-between w-full">
         <label>Пароль: </label>
         <Password
           v-model="inputPass"
+          :feedback="false"
           toggleMask
-          class="border-2 rounded border-blue ml-2"
+          class="ml-2"
         />
       </div>
-      <Button
-        outlined
-        label="Вход"
-        class="bg-blue text-white px-5 py-2 mt-5 self-end"
-      />
+      <Button outlined label="Вход" class="mt-5 self-end" />
     </form>
   </div>
 </template>

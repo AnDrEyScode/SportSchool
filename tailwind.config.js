@@ -10,10 +10,10 @@ export default {
       transparent: 'transparent',
       current: 'currentColor',
       'white': '#ffffff',
-      'blue': '#1e3685',
+      'blue': '#161F6D',
+      'light-blue': '#00ABE1'
     },
   },
   plugins: [],
-  
 }
 

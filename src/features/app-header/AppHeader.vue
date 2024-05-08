@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-blue relative h-16" id="main-page-header">
-    <Menubar :model="menuItems" class="bg-blue fixed w-full top-0 left-0">
+  <div class="bg-blue sticky top-0 left-0 z-50" id="main-page-header">
+    <Menubar :model="menuItems" class="sticky bg-blue w-full top-0 left-0">
       <template #start>
         <img src="@/shared/assets/main_logo.png" alt="logo" class="h-8 m-4" />
       </template>

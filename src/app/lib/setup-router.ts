@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/pages/HomeView.vue";
 import AuthView from "@/pages/AuthView.vue";
 import SearchPage from "@/pages/SearchPage.vue";
+import AccountPage from "@/pages/AccountPage.vue";
 
 export function setupRouter({ app }: { app: App }): void {
   const router = createRouter({
@@ -23,6 +24,11 @@ export function setupRouter({ app }: { app: App }): void {
         path: "/search",
         name: "search",
         component: SearchPage,
+      },
+      {
+        path: "/account",
+        name: "account",
+        component: AccountPage,
       },
     ],
   });

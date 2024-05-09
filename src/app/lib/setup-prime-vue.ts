@@ -15,6 +15,8 @@ import Carousel from "primevue/carousel";
 import Tag from "primevue/tag";
 import DataView from "primevue/dataview";
 import SelectButton from "primevue/selectbutton";
+import MultiSelect from "primevue/multiselect";
+import Image from "primevue/image";
 
 export function setupPrimeComponents({ app }: { app: App }): void {
   app.use(PrimeVue, {
@@ -34,11 +36,6 @@ export function setupPrimeComponents({ app }: { app: App }): void {
           class: "bg-blue",
         },
       },
-      autocomplete: {
-        input: {
-          root: "w-16rem", // OR { class: 'w-16rem' }
-        },
-      },
     },
   });
   const uiLib = [
@@ -52,6 +49,8 @@ export function setupPrimeComponents({ app }: { app: App }): void {
     Tag,
     DataView,
     SelectButton,
+    MultiSelect,
+    Image,
   ];
   uiLib.forEach((c) => {
     console.log(c.name);

@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-blue sticky top-0 left-0 z-50" id="main-page-header">
-    <Menubar :model="menuItems" class="sticky bg-blue w-full top-0 left-0">
+  <div class="sticky top-0 left-0 bg-blue z-50" id="main-page-header">
+    <Menubar :model="menuItems" class="bg-blue w-full">
       <template #start>
-        <img src="@/shared/assets/main_logo.png" alt="logo" class="h-8 m-4" />
+        <img src="@/shared/assets/main_logo.png" alt="logo" class="h-4 mx-4" />
       </template>
       <template #item="{ item, props }">
         <a

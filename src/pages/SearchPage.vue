@@ -1,11 +1,11 @@
 <template>
   <div class="relative">
-    <search-params />
+    <search-params class="m-10" />
     <search-results />
   </div>
 </template>
 
 <script setup lang="ts">
-import { SearchParams } from "@/features/search-params";
-import { SearchResults } from "@/features/search-results";
+import { SearchParams } from "@/widgets/search-params";
+import { SearchResults } from "@/widgets/search-results";
 </script>

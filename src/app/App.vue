@@ -4,5 +4,5 @@
 </template>
 
 <script setup lang="ts">
-import { AppHeader } from "@/features/app-header";
+import { AppHeader } from "@/widgets/app-header";
 </script>

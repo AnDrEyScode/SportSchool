@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full h-screen">
-    <h1>Тренеры</h1>
+  <section class="w-full h-screen">
+    <h1 class="my-4">Тренеры</h1>
     <Carousel
       :value="products"
       :numVisible="3"
@@ -9,39 +9,35 @@
       circular
     >
       <template #item="slotProps">
-        <div class="border-1 surface-border border-round m-2 p-3">
-          <div class="mb-3">
-            <div class="relative mx-auto">
-              <img
-                :src="
-                  'https://primefaces.org/cdn/primevue/images/product/' +
-                  slotProps.data.image
-                "
-                :alt="slotProps.data.name"
-                class="w-full border-round"
+        <Card style="width: 25rem; overflow: hidden">
+          <template #header>
+            <img alt="user header" src="@/shared/assets/trainer.jpg" />
+          </template>
+          <template #title>Advanced Card</template>
+          <template #subtitle>Card subtitle</template>
+          <template #content>
+            <p class="m-0">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Inventore sed consequuntur error repudiandae numquam deserunt
+              quisquam repellat libero asperiores earum nam nobis, culpa ratione
+              quam perferendis esse, cupiditate neque quas!
+            </p>
+          </template>
+          <template #footer>
+            <div class="flex gap-3 mt-1">
+              <Button
+                label="Cancel"
+                severity="secondary"
+                outlined
+                class="w-full"
               />
-              <!-- <Tag
-                :value="slotProps.data.inventoryStatus"
-                :severity="getSeverity(slotProps.data.inventoryStatus)"
-                class="absolute"
-                style="left: 5px; top: 5px"
-              /> -->
+              <Button label="Save" class="w-full" />
             </div>
-          </div>
-          <div class="mb-3 font-medium">{{ slotProps.data.name }}</div>
-          <div class="flex justify-content-between align-items-center">
-            <div class="mt-0 font-semibold text-xl">
-              ${{ slotProps.data.price }}
-            </div>
-            <span>
-              <Button icon="pi pi-heart" severity="secondary" outlined />
-              <Button icon="pi pi-shopping-cart" class="ml-2" />
-            </span>
-          </div>
-        </div>
+          </template>
+        </Card>
       </template>
     </Carousel>
-  </div>
+  </section>
 </template>
 <script setup lang="ts">
 import { ref } from "vue";

@@ -19,6 +19,7 @@ import MultiSelect from "primevue/multiselect";
 import Image from "primevue/image";
 import Dropdown from "primevue/dropdown";
 import Divider from "primevue/divider";
+import TabMenu from "primevue/tabmenu";
 
 export function setupPrimeComponents({ app }: { app: App }): void {
   app.use(PrimeVue, {
@@ -55,6 +56,7 @@ export function setupPrimeComponents({ app }: { app: App }): void {
     Image,
     Dropdown,
     Divider,
+    TabMenu,
   ];
   uiLib.forEach((c) => {
     console.log(c.name);

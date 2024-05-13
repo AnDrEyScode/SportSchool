@@ -1,5 +1,5 @@
 <template>
-  <app-header />
+  <!-- <app-header /> -->
   <router-view to="/" />
 </template>
 

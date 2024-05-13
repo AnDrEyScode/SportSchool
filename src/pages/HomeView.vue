@@ -1,4 +1,5 @@
 <template>
+  <app-header />
   <main class="relative">
     <main-baner />
     <organization-info />

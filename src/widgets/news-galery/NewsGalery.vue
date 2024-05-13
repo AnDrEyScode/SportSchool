@@ -2,31 +2,20 @@
   <section class="relative w-full h-[70vh] flex flex-col justify-center">
     <h1>Новости</h1>
     <div
-      class="relative max-w-7/10 max-h-1/2 flex flex-col justify-center items-center flex-wrap bg-light-blue"
+      class="relative max-w-7/10 max-h-1/2 container grid grid-cols-4 grid-rows-2 gap-3"
     >
-      <!-- <div>
-        <img src="@\shared\assets\about-school-baner.jpg" alt="" />
-      </div>
-      <div>
-        <img src="@\shared\assets\about-school-baner.jpg" alt="" />
-      </div>
-      <div>
-        <img src="@\shared\assets\about-school-baner.jpg" alt="" />
-      </div>
-      <div>
-        <img src="@\shared\assets\about-school-baner.jpg" alt="" />
-      </div> -->
-
-      <!-- <div
+      <div
         v-for="(news, index) in images"
         :key="index"
-        class="h-1/2 first:h-full bg-white"
+        class="first:col-span-2 first:row-span-2"
       >
         <img src="@\shared\assets\about-school-baner.jpg" alt="" />
       </div>
-      <div>
-        <div>Смотреть все новости</div>
-      </div> -->
+      <div class="flex justify-center items-center">
+        <Button rounded class="h-full rounded-full text-xs">
+          Смотреть все новости
+        </Button>
+      </div>
     </div>
   </section>
 </template>

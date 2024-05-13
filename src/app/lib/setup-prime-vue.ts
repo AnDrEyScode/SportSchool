@@ -17,6 +17,8 @@ import DataView from "primevue/dataview";
 import SelectButton from "primevue/selectbutton";
 import MultiSelect from "primevue/multiselect";
 import Image from "primevue/image";
+import Dropdown from "primevue/dropdown";
+import Divider from "primevue/divider";
 
 export function setupPrimeComponents({ app }: { app: App }): void {
   app.use(PrimeVue, {
@@ -25,7 +27,7 @@ export function setupPrimeComponents({ app }: { app: App }): void {
         root: "border-2 rounded border-blue",
       },
       button: {
-        root: "bg-blue text-white px-5 py-2 border-2 hover:bg-white hover:text-blue hover:border-blue",
+        root: "box-border bg-blue text-white px-5 py-2 border border-white hover:bg-white hover:text-blue hover:border-blue hover:border",
       },
       password: {
         root: "border-2 rounded border-blue ",
@@ -51,6 +53,8 @@ export function setupPrimeComponents({ app }: { app: App }): void {
     SelectButton,
     MultiSelect,
     Image,
+    Dropdown,
+    Divider,
   ];
   uiLib.forEach((c) => {
     console.log(c.name);

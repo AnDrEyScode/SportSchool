@@ -25,7 +25,7 @@ const props = defineProps<{
 }>();
 const { menuTabs } = toRefs(props);
 </script>
-<style scoped>
+<style>
 .p-tabview {
   display: flex;
   align-items: stretch;

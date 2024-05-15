@@ -12,7 +12,7 @@
         <img src="@\shared\assets\about-school-baner.jpg" alt="" />
       </div>
       <div class="flex justify-center items-center">
-        <Button rounded class="h-full rounded-full text-xs">
+        <Button rounded class="h-3/4 rounded-full text-xs">
           Смотреть все новости
         </Button>
       </div>

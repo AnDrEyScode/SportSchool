@@ -39,6 +39,13 @@ export default {
       "5": "32px",
       "6": "48px",
     },
+    borderRadius: {
+      'none': '0',
+      'sm': '10px',
+      'lg': '20px',
+      'xl': '30px',
+      'full': '9999px',
+    },
   },
   plugins: [
     // plugin(function ({ addBase, theme }) {

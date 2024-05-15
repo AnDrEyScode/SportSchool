@@ -20,6 +20,8 @@ import Image from "primevue/image";
 import Dropdown from "primevue/dropdown";
 import Divider from "primevue/divider";
 import TabMenu from "primevue/tabmenu";
+import TabPanel from "primevue/tabpanel";
+import TabView from "primevue/tabview";
 
 export function setupPrimeComponents({ app }: { app: App }): void {
   app.use(PrimeVue, {
@@ -57,6 +59,8 @@ export function setupPrimeComponents({ app }: { app: App }): void {
     Dropdown,
     Divider,
     TabMenu,
+    TabPanel,
+    TabView,
   ];
   uiLib.forEach((c) => {
     console.log(c.name);

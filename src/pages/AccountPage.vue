@@ -7,15 +7,18 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import { SideTabMenu } from "@/widgets/side-tab-menu";
+import { AccountInfo } from "@/widgets/account-info";
 import { AccountStatistics } from "@/widgets/account-statistics";
 import { AccountTimetable } from "@/widgets/account-timetable";
+import { AccountTrainers } from "@/widgets/account-trainers";
+import { AccountGroups } from "@/widgets/account-groups";
 import type { MenuTab } from "@/widgets/side-tab-menu/types";
 
 const menuTabs = [
   {
     label: "Личный кабинет",
     icon: "pi pi-home",
-    component: AccountStatistics,
+    component: AccountInfo,
   },
   {
     label: "Статистика и достижения",
@@ -30,12 +33,12 @@ const menuTabs = [
   {
     label: "Тренеры",
     icon: "pi pi-inbox",
-    component: AccountStatistics,
+    component: AccountTrainers,
   },
   {
     label: "Мои группы",
     icon: "pi pi-inbox",
-    component: AccountStatistics,
+    component: AccountGroups,
   },
 ] as MenuTab[];
 

@@ -63,4 +63,9 @@ const { menuTabs } = toRefs(props);
   background-color: white;
   color: #161f6d;
 }
+
+.p-tabview-panels {
+  width: 100%;
+  height: 100%;
+}
 </style>

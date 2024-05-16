@@ -22,6 +22,7 @@ import Divider from "primevue/divider";
 import TabMenu from "primevue/tabmenu";
 import TabPanel from "primevue/tabpanel";
 import TabView from "primevue/tabview";
+import Chart from "primevue/chart";
 
 export function setupPrimeComponents({ app }: { app: App }): void {
   app.use(PrimeVue, {
@@ -49,11 +50,11 @@ export function setupPrimeComponents({ app }: { app: App }): void {
     Avatar,
     Password,
     Button,
+    SelectButton,
     Card,
     Carousel,
     Tag,
     DataView,
-    SelectButton,
     MultiSelect,
     Image,
     Dropdown,
@@ -61,6 +62,7 @@ export function setupPrimeComponents({ app }: { app: App }): void {
     TabMenu,
     TabPanel,
     TabView,
+    Chart,
   ];
   uiLib.forEach((c) => {
     console.log(c.name);

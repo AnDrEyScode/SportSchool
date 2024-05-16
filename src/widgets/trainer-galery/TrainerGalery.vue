@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full h-screen">
+  <section class="overflow-hidden">
     <h1 class="my-4">Тренеры</h1>
     <Carousel
       :value="products"
@@ -9,7 +9,7 @@
       circular
     >
       <template #item="slotProps">
-        <Card style="width: 25rem; overflow: hidden">
+        <Card style="width: 20rem; overflow: hidden">
           <template #header>
             <img alt="user header" src="@/shared/assets/trainer.jpg" />
           </template>

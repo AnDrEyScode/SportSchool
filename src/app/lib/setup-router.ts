@@ -30,8 +30,12 @@ export function setupRouter({ app }: { app: App }): void {
         name: "account",
         component: AccountPage,
       },
+      {
+        path: "/group",
+        name: "group",
+        component: AccountPage,
+      },
     ],
   });
-
   app.use(router);
 }

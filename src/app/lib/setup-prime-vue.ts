@@ -23,6 +23,7 @@ import TabMenu from "primevue/tabmenu";
 import TabPanel from "primevue/tabpanel";
 import TabView from "primevue/tabview";
 import Chart from "primevue/chart";
+import Calendar from "primevue/calendar";
 
 export function setupPrimeComponents({ app }: { app: App }): void {
   app.use(PrimeVue, {
@@ -63,6 +64,7 @@ export function setupPrimeComponents({ app }: { app: App }): void {
     TabPanel,
     TabView,
     Chart,
+    Calendar,
   ];
   uiLib.forEach((c) => {
     console.log(c.name);

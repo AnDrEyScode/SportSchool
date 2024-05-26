@@ -15,15 +15,27 @@
     </TabView>
   </div>
 </template>
-
 <script setup lang="ts">
-import { toRefs } from "vue";
+import { computed, toRefs, watch } from "vue";
 import type { MenuTab } from "./types";
 
 const props = defineProps<{
   menuTabs: MenuTab[];
 }>();
 const { menuTabs } = toRefs(props);
+
+const emit = defineEmits<{
+  refreshTabs: [tabs: MenuTab[]];
+}>();
+
+watch(menuTabs, resetTabs);
+
+function resetTabs() {
+  console.log(menuTabs);
+  emit("refreshTabs", menuTabs.value);
+}
+
+const countTabs = computed(() => menuTabs.value.length);
 </script>
 <style>
 .p-tabview {

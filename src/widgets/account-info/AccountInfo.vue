@@ -1,3 +1,147 @@
 <template>
-  <div>Статистика</div>
+  <div class="p-fluid h-screen">
+    <h2>Личный кабинет</h2>
+    <div class="flex h-full gap-6">
+      <div class="flex flex-1 flex-col justify-center items-center">
+        <div class="field flex flex-col items-center">
+          <img
+            src="@/shared/assets/trainer.jpg"
+            alt="Фото"
+            class="mt-2 rounded-full object-cover"
+          />
+          <label>Фото</label>
+
+          <Button label="Загрузить фото" icon="pi pi-upload" class="mt-2" />
+          <input
+            type="file"
+            ref="fileInput"
+            class="hidden"
+            @change="onFileChange"
+          />
+        </div>
+      </div>
+      <div
+        class="flex flex-1 flex-col justify-around items-stretch gap-6 my-6 py-6 mx-3"
+      >
+        <div class="field flex flex-col after:border-2 after:border-blue">
+          <label for="lastName">Фамилия</label>
+          <InputText id="lastName" v-model="lastName" class="border-none" />
+        </div>
+        <div class="field flex flex-col after:border-2 after:border-blue">
+          <label for="firstName">Имя</label>
+          <InputText id="firstName" v-model="firstName" class="border-none" />
+        </div>
+        <div class="field flex flex-col after:border-2 after:border-blue">
+          <label for="middleName">Отчество</label>
+          <InputText id="middleName" v-model="middleName" class="border-none" />
+        </div>
+      </div>
+      <div
+        class="flex flex-1 flex-col justify-around items-stretch gap-6 my-6 py-6 mx-3"
+      >
+        <div class="field flex flex-col after:border-2 after:border-blue">
+          <label for="phone">Телефон</label>
+          <InputText id="phone" v-model="phone" class="border-none" />
+        </div>
+        <div class="field flex flex-col after:border-2 after:border-blue">
+          <label for="email">Email</label>
+          <InputText id="email" v-model="email" class="border-none" />
+        </div>
+        <div class="field flex flex-col after:border-2 after:border-blue">
+          <label for="dob">Дата рождения</label>
+          <Calendar
+            id="dob"
+            v-model="dob"
+            dateFormat="dd/mm/yy"
+            class="border-none"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-12 md:col-6">
+      <div class="field">
+        <label for="lastName">Фамилия</label>
+        <InputText id="lastName" v-model="lastName" />
+      </div>
+      <div class="field">
+        <label for="firstName">Имя</label>
+        <InputText id="firstName" v-model="firstName" />
+      </div>
+      <div class="field">
+        <label for="middleName">Отчество</label>
+        <InputText id="middleName" v-model="middleName" />
+      </div>
+      <div class="field">
+        <label for="phone">Телефон</label>
+        <InputText id="phone" v-model="phone" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <InputText id="email" v-model="email" />
+      </div>
+      <div class="field">
+        <label for="dob">Дата рождения</label>
+        <Calendar id="dob" v-model="dob" dateFormat="dd/mm/yy" />
+      </div>
+    </div>
+    <div class="col-12 md:col-6 flex flex-col items-center">
+      <div class="field">
+        <label>Фото</label>
+        <img
+          v-if="photoUrl"
+          :src="photoUrl"
+          alt="Фото"
+          class="mt-2 rounded-full h-24 w-24 object-cover"
+        />
+        <Button
+          label="Загрузить фото"
+          icon="pi pi-upload"
+          class="mt-2"
+          @click="fileInput.click()"
+        />
+        <input
+          type="file"
+          ref="fileInput"
+          class="hidden"
+          @change="onFileChange"
+        />
+      </div>
+    </div> -->
+  </div>
 </template>
+
+<script setup lang="ts">
+import { ref } from "vue";
+import InputText from "primevue/inputtext";
+import Calendar from "primevue/calendar";
+import Button from "primevue/button";
+
+const lastName = ref("");
+const firstName = ref("");
+const middleName = ref("");
+const photoUrl = ref<string | ArrayBuffer | null>(null);
+const phone = ref("");
+const email = ref("");
+const dob = ref<Date | null>(null);
+const fileInput = ref<HTMLInputElement | null>(null);
+
+const onFileChange = (event: Event) => {
+  const file = (event.target as HTMLInputElement).files?.[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      photoUrl.value = e.target?.result;
+    };
+    reader.readAsDataURL(file);
+  }
+};
+</script>
+
+<style scoped>
+.field {
+  margin-bottom: 1rem;
+}
+.hidden {
+  display: none;
+}
+</style>

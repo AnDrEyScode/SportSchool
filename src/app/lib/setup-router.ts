@@ -5,6 +5,7 @@ import HomeView from "@/pages/HomeView.vue";
 import AuthView from "@/pages/AuthView.vue";
 import SearchPage from "@/pages/SearchPage.vue";
 import AccountPage from "@/pages/AccountPage.vue";
+import GroupPage from "@/pages/GroupPage.vue";
 
 export function setupRouter({ app }: { app: App }): void {
   const router = createRouter({
@@ -33,7 +34,7 @@ export function setupRouter({ app }: { app: App }): void {
       {
         path: "/group",
         name: "group",
-        component: AccountPage,
+        component: GroupPage,
       },
     ],
   });

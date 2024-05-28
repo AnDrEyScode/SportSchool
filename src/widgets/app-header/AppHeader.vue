@@ -18,9 +18,10 @@
           <Avatar
             v-if="!authorized"
             icon="pi pi-user"
-            class="mr-2"
+            class="mr-2 hover:cursor-pointer"
             size="large"
             shape="circle"
+            @click="goToProfile"
           />
           <Button v-else>Вход</Button>
         </div>
@@ -30,6 +31,7 @@
 </template>
 <script setup lang="ts">
 import type { MenuItem } from "primevue/menuitem";
+import { useRouter } from "vue-router";
 
 const menuItems = [
   { label: "Главная", icon: "pi pi-home" },
@@ -41,4 +43,10 @@ const menuItems = [
 ] as MenuItem[];
 
 const authorized = false;
+
+const router = useRouter();
+
+function goToProfile() {
+  router.push("/account");
+}
 </script>

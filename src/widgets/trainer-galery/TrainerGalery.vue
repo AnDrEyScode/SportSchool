@@ -9,29 +9,30 @@
       circular
     >
       <template #item="slotProps">
-        <Card style="width: 20rem; overflow: hidden">
+        <Card class="overflow-auto max-w-[400px]">
           <template #header>
             <img alt="user header" src="@/shared/assets/trainer.jpg" />
           </template>
-          <template #title>Advanced Card</template>
-          <template #subtitle>Card subtitle</template>
+          <template #title>Иванов Иван Иванович</template>
+          <template #subtitle>Стаж: более 10 лет</template>
           <template #content>
             <p class="m-0">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Inventore sed consequuntur error repudiandae numquam deserunt
-              quisquam repellat libero asperiores earum nam nobis, culpa ratione
-              quam perferendis esse, cupiditate neque quas!
+              Опытный тренер по волейболу. Воспитал чемпионов и призёров
+              чемпионатов Москвы и России. В данный момент является главным
+              тренером сборной Североморска. В личных спортивных достижениях -
+              является мастером спорта, неоднократно становился чемпионом
+              России.
             </p>
           </template>
           <template #footer>
             <div class="flex gap-3 mt-1">
               <Button
-                label="Cancel"
+                label="Записаться"
                 severity="secondary"
                 outlined
                 class="w-full"
               />
-              <Button label="Save" class="w-full" />
+              <Button label="Подробнее" class="w-full" />
             </div>
           </template>
         </Card>

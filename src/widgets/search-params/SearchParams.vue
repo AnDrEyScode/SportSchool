@@ -7,14 +7,14 @@
         <MultiSelect
           v-model="selectedSports"
           display="chip"
-          :options="sportOptions"
+          :options="SportOptions"
           optionLabel="name"
           placeholder="Вид спорта"
           class="hover:shadow-md"
         />
         <Dropdown
           v-model="selectedAgeGroup"
-          :options="ageGroupOptions"
+          :options="AgeGroupOptions"
           optionLabel="name"
           placeholder="Возрастная группа"
           class="hover:shadow-md :"
@@ -35,30 +35,13 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import {
+  SportOptions,
+  AgeGroupOptions,
+  FilialOptions,
+} from "@/shared/const/group-options";
 
 const selectedSports = ref();
-const sportOptions = ref([
-  { name: "Волейбол", code: "NY" },
-  { name: "Баскетбол", code: "RM" },
-  { name: "Легкая отлетика", code: "LDN" },
-  { name: "Футбол", code: "IST" },
-  { name: "Гимнастика", code: "PRS" },
-]);
-
 const selectedAgeGroup = ref();
-const ageGroupOptions = ref([
-  { name: "7-8 лет", code: "NY" },
-  { name: "9-10 лет", code: "RM" },
-  { name: "11-12 лет", code: "LDN" },
-  { name: "13-14 лет", code: "IST" },
-  { name: "15-16 лет", code: "PRS" },
-]);
-
 const selectedFilial = ref();
-const FilialOptions = ref([
-  { name: "Филиал 1", code: "NY" },
-  { name: "Филиал 2", code: "NY" },
-  { name: "Филиал 3", code: "NY" },
-  { name: "Филиал 4", code: "NY" },
-]);
 </script>

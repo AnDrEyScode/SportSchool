@@ -80,6 +80,7 @@ const countTabs = computed(() => menuTabs.value.length);
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 .p-tabview-panel {
   position: relative;

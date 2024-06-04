@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "chart.js": "^4.4.2",
+    "firebase": "^10.12.2",
     "pinia": "^2.1.7",
     "primeicons": "^7.0.0",
     "primevue": "^3.51.0",

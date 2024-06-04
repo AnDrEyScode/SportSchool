@@ -63,15 +63,14 @@
 </template>
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import { useToast } from "primevue/usetoast";
+import { useUserStore } from "@/entities/user/store";
 
 enum AuthFormMode {
   SIGN_IN = "SignIn",
   REG = "Reg",
 }
-interface ModeOption {
-  name: string;
-  value: AuthFormMode;
-}
+const toast = useToast();
 
 const formModeOptions = [
   { name: "Вход", value: AuthFormMode.SIGN_IN },
@@ -86,9 +85,23 @@ const inputRegPass = ref("");
 const inputRegPass2 = ref("");
 const inputRegLogin = ref("");
 
+const userStore = useUserStore();
+
 function onSubmit() {
-  console.log(formMode.value);
-  console.log("isSignInMode: ", isSignInMode.value);
+  if (isSignInMode.value) {
+    userStore.signIn(inputSignLogin.value, inputSignPass.value);
+  } else {
+    if (inputRegPass.value !== inputRegPass2.value) {
+      toast.add({
+        severity: "error",
+        summary: "Проверьте, что пароли одинаковые!",
+        life: 3000,
+      });
+      return;
+    }
+
+    userStore.signUp(inputRegLogin.value, inputRegPass.value);
+  }
 }
 
 const isSignInMode = computed(

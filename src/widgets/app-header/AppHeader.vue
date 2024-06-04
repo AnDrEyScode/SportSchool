@@ -15,23 +15,25 @@
       </template>
       <template #end>
         <div class="flex align-items-center gap-2">
-          <Avatar
-            v-if="!authorized"
-            icon="pi pi-user"
-            class="mr-2 hover:cursor-pointer"
-            size="large"
-            shape="circle"
-            @click="goToProfile"
-          />
-          <Button v-else>Вход</Button>
+          <RouterLink v-if="userStore.isAuth" to="/account">
+            <Avatar
+              icon="pi pi-user"
+              class="mr-2 hover:cursor-pointer"
+              size="large"
+              shape="circle"
+            />
+          </RouterLink>
+          <RouterLink v-else to="/auth">
+            <Button icon="pi pi-sign-in">Вход</Button>
+          </RouterLink>
         </div>
       </template>
     </Menubar>
   </div>
 </template>
 <script setup lang="ts">
+import { useUserStore } from "@/entities/user/store";
 import type { MenuItem } from "primevue/menuitem";
-import { useRouter } from "vue-router";
 
 const menuItems = [
   { label: "Главная", icon: "pi pi-home" },
@@ -42,11 +44,5 @@ const menuItems = [
   { label: "Виды спорта", icon: "pi pi-envelope" },
 ] as MenuItem[];
 
-const authorized = false;
-
-const router = useRouter();
-
-function goToProfile() {
-  router.push("/account");
-}
+const userStore = useUserStore();
 </script>

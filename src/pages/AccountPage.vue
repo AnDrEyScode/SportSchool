@@ -1,6 +1,12 @@
 <template>
-  <div>
+  <div class="relative">
     <side-tab-menu :menu-tabs />
+    <Button
+      label="Выйти"
+      icon="pi pi-sign-out"
+      class="absolute top-3 right-3"
+      @click="userStore.signOutAccount"
+    />
   </div>
 </template>
 
@@ -13,37 +19,35 @@ import { AccountTimetable } from "@/widgets/account-timetable";
 import { AccountTrainers } from "@/widgets/account-trainers";
 import { AccountGroups } from "@/widgets/account-groups";
 import type { MenuTab } from "@/widgets/side-tab-menu/types";
+import { useUserStore } from "@/entities/user/store";
 
 const menuTabs = [
   {
     label: "Личный кабинет",
-    icon: "pi pi-home",
+    icon: "pi pi-info-circle",
     component: AccountInfo,
   },
   {
     label: "Статистика и достижения",
-    icon: "pi pi-chart-line",
+    icon: "pi pi-chart-bar",
     component: AccountStatistics,
   },
   {
     label: "Расписание",
-    icon: "pi pi-list",
+    icon: "pi pi-calendar",
     component: AccountTimetable,
   },
   {
     label: "Тренеры",
-    icon: "pi pi-inbox",
+    icon: "pi pi-users",
     component: AccountTrainers,
   },
   {
     label: "Мои группы",
-    icon: "pi pi-inbox",
+    icon: "pi pi-list",
     component: AccountGroups,
   },
 ] as MenuTab[];
 
-const activeTab = ref(0);
-watch(activeTab, () => {
-  console.log(activeTab.value);
-});
+const userStore = useUserStore();
 </script>

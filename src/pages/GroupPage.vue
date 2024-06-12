@@ -20,7 +20,7 @@
           :maxFileSize="1000000"
           @upload="onUploadFile"
           :auto="true"
-          chooseLabel="Browse"
+          chooseLabel="Загрузить"
         />
       </div>
       <div class="flex basis-1/2 px-6 justify-center">
@@ -51,7 +51,7 @@
               class="hover:shadow-md"
             />
             <Dropdown
-              v-model="group.ageGroup"
+              v-model="group.coach"
               :options="TrainerOptions"
               optionLabel="name"
               placeholder="Тренер"
@@ -59,7 +59,7 @@
             />
             <div class="flex flex-col">
               <label>Максимальное кол-во детей:</label>
-              <InputNumber placeholder="2-20" />
+              <InputNumber placeholder="2-20" v-model="group.maxPupils" />
             </div>
             <div class="flex flex-col">
               <label> Даты тренировок </label>
@@ -94,7 +94,8 @@ const group = ref({
   filial: "",
   ageGroup: "",
   sportType: "",
-  trainer: "Иванов Иван Иванович",
+  coach: "Иванов Иван Иванович",
+  maxPupils: 0,
   trainings: [],
 });
 

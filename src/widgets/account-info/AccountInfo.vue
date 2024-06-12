@@ -3,11 +3,11 @@
     <h2>Личный кабинет</h2>
     <div class="flex h-full gap-6">
       <div class="flex flex-1 flex-col justify-center items-center">
-        <div class="field flex flex-col items-center">
+        <div class="field flex flex-col items-center h-[300px]">
           <img
-            src="@/shared/assets/trainer.jpg"
+            :src="`assets/pupil_avatar.jpg`"
             alt="Фото"
-            class="mt-2 rounded-full object-cover"
+            class="mt-2 rounded-full object-cover flex-1"
           />
           <label>Фото</label>
 
@@ -73,7 +73,7 @@ const middleName = ref("");
 const photoUrl = ref<string | ArrayBuffer | null>(null);
 const phone = ref("");
 const email = ref("");
-const dob = ref<Date | null>(null);
+const dob = ref<Date | null>(new Date(Date.parse("2000-05-05")));
 const fileInput = ref<HTMLInputElement | null>(null);
 
 const onFileChange = (event: Event) => {

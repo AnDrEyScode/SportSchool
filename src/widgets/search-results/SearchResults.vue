@@ -29,7 +29,7 @@
               <div class="md:w-[10rem] relative">
                 <img
                   class="block xl:block mx-auto rounded-md w-full"
-                  :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`"
+                  :src="`assets/${item.image}`"
                   :alt="item.name"
                 />
                 <Tag
@@ -46,13 +46,15 @@
                   class="flex flex-row md:flex-col justify-between items-start gap-2"
                 >
                   <div>
-                    <span class="font-medium text-secondary text-sm">{{
-                      item.category
-                    }}</span>
+                    <div
+                      class="text-lg text-surface-700 dark:text-surface-0/80 mt-2 font-bold"
+                    >
+                      {{ item.name }}
+                    </div>
                     <div
                       class="text-lg font-medium text-surface-700 dark:text-surface-0/80 mt-2"
                     >
-                      {{ item.name }}
+                      Описание: {{ item.description }}
                     </div>
                   </div>
                   <div
@@ -61,11 +63,7 @@
                   >
                     <div
                       class="bg-surface-0 dark:bg-surface-900 flex items-center gap-2 justify-center py-1 px-2"
-                      style="
-                        border-radius: 30px;
-                        shadow-md: 0px 1px 2px 0px rgba(0, 0, 0, 0.04),
-                          0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-                      "
+                      style="border-radius: 30px"
                     >
                       <span
                         class="text-surface-700 dark:text-surface-0/80 font-medium text-sm"
@@ -78,14 +76,11 @@
                 <div class="flex flex-col md:items-end gap-5">
                   <span
                     class="text-xl font-semibold text-surface-700 dark:text-surface-0/80"
-                    >${{ item.price }}</span
+                    >В группе: {{ item.count }} / {{ item.maxCount }}</span
                   >
                   <div class="flex flex-row-reverse md:flex-row gap-2">
-                    <Button icon="pi pi-heart" outlined></Button>
                     <Button
-                      icon="pi pi-shopping-cart"
-                      label="Buy Now"
-                      :disabled="item.inventoryStatus === 'OUTOFSTOCK'"
+                      label="Записаться"
                       class="flex-auto md:flex-initial white-space-nowrap"
                     ></Button>
                   </div>
@@ -109,7 +104,7 @@
                 <div class="relative mx-auto">
                   <img
                     class="rounded-md w-full"
-                    :src="`https://primefaces.org/cdn/primevue/images/product/${item.image}`"
+                    :src="`assets/${item.image}`"
                     :alt="item.name"
                     style="max-width: 300px"
                   />
@@ -124,11 +119,8 @@
               <div class="pt-4">
                 <div class="flex flex-row justify-between items-start gap-2">
                   <div>
-                    <span class="font-medium text-secondary text-sm">{{
-                      item.category
-                    }}</span>
                     <div
-                      class="text-lg font-medium text-surface-900 dark:text-surface-0 mt-1"
+                      class="text-lg text-surface-900 dark:text-surface-0 mt-1 font-bold"
                     >
                       {{ item.name }}
                     </div>
@@ -139,7 +131,7 @@
                   >
                     <div
                       class="surface-0 flex items-center gap-2 justify-center py-1 px-2"
-                      style="border-radius: 30px; shadow-md 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)"
+                      style="border-radius: 30px"
                     >
                       <span
                         class="text-surface-900 dark:text-surface-0 font-medium text-sm"
@@ -152,16 +144,14 @@
                 <div class="flex flex-col gap-4 mt-4">
                   <span
                     class="text-2xl font-semibold text-surface-900 dark:text-surface-0"
-                    >${{ item.price }}</span
+                    >В группе: {{ item.count }} / {{ item.maxCount }}</span
                   >
                   <div class="flex gap-2">
                     <Button
-                      icon="pi pi-shopping-cart"
-                      label="Buy Now"
+                      label="Записаться"
                       :disabled="item.inventoryStatus === 'OUTOFSTOCK'"
                       class="flex-auto white-space-nowrap"
                     ></Button>
-                    <Button icon="pi pi-heart" outlined></Button>
                   </div>
                 </div>
               </div>
@@ -183,13 +173,10 @@ const options = ref(["list", "grid"]);
 
 const getSeverity = (product) => {
   switch (product.inventoryStatus) {
-    case "INSTOCK":
+    case "Идёт набор":
       return "success";
 
-    case "LOWSTOCK":
-      return "warn";
-
-    case "OUTOFSTOCK":
+    case "Набор закрыт":
       return "danger";
 
     default:
